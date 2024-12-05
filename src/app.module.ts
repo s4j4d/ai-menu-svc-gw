@@ -26,14 +26,18 @@ import { ConfigModule } from '@nestjs/config';
           type: 'direct',
         },
       ],
-      uri: 'amqp://guest:guest@localhost:5672',
+      uri:'amqp://' +
+          `${configService.get('RABBITMQ_USERNAME', 'guest')}:` +
+          `${configService.get('RABBITMQ_PASSWORD', 'guest')}@` +
+          `${configService.get('RABBITMQ_HOSTNAME', 'localhost')}:` +
+          `${configService.get('RABBITMQ_PORT', '5672')}`,
+      connectionInitOptions: { wait: false },
       // channels: {
       //   GW: {
       //     prefetchCount: 15,
       //     default: true,
       //   },
       // },
-      connectionInitOptions: { wait: false },
     }),
     RestaurantsModule,
     UsersModule,
