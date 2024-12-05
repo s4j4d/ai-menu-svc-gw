@@ -27,7 +27,7 @@ export class RestaurantsController extends BaseController {
     return this.service.getRestaurantProfile(data, await this.getMeta({ req }));
   }
 
-  @Post('/:userId/userPreferences')
+  @Post('/:userId/user_preferences')
   @UseGuards(JwtAuthnGuard)
   async setUserRestaurantPreferences(@Body() data, @Req() req) {
     return this.service.setUserRestaurantPreferences(
@@ -36,7 +36,7 @@ export class RestaurantsController extends BaseController {
     );
   }
 
-  @Get('/:userId/userPreferences')
+  @Get('/:userId/user_preferences')
   @UseGuards(JwtAuthnGuard)
   async getUserRestaurantPreferences(@Param() data, @Req() req) {
     return this.service.getUserRestaurantPreferences(
@@ -45,7 +45,7 @@ export class RestaurantsController extends BaseController {
     );
   }
   /********************************************************************* */
-  @Get('/:id/allMenus')
+  @Get('/:id/all_menus')
   async getRestaurantMenus(@Param('id') restaurantId: string, @Req() req) {
     return this.service.getRestaurantMenus(
       { restaurantId },
@@ -60,7 +60,7 @@ export class RestaurantsController extends BaseController {
   async updateRestaurantMenu(@Body() data, @Req() req) {
     return this.service.updateRestaurantMenu(data, await this.getMeta({ req }));
   }
-  @Patch('/:id/menuItem')
+  @Patch('/:id/menu_item')
   async updateMenuItem(@Body() data, @Req() req) {
     return this.service.updateMenuItem(data, await this.getMeta({ req }));
   }
