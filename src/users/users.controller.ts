@@ -24,7 +24,7 @@ export class UsersController extends BaseController {
   async create(@Body() data: CreateUserDto, @Req() req) {
     return this.service.create(data, await this.getMeta({ req }));
   }
-  @Get('/profile/:id')
+  @Get('/:id/profile')
   @UseGuards(JwtAuthnGuard)
   async getUserProfile(@Param() data, @Req() req): Promise<any> {
     if (req.user.id !== data.id) {
