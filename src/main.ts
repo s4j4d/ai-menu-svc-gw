@@ -8,6 +8,8 @@ import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   const logger = new Logger(bootstrap.name);
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  //TODO: remove this later
+  app.enableCors({ origin: false });
   app.useGlobalPipes(new ValidationPipe());
   app.set('trust proxy', true);
   app.use(cookieParser());
