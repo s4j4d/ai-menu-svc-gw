@@ -5,6 +5,7 @@ import { DocumentsModule } from './documents/documents.module';
 import { RabbitMQModule } from '@golevelup/nestjs-rabbitmq';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { RestaurantOrdersModule } from './restaurant-orders/restaurant-orders.module';
 
 @Global()
 @Module({
@@ -49,6 +50,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     UsersModule,
     DocumentsModule,
     AuthenticationModule,
+    RestaurantOrdersModule
   ],
   providers: [Logger],
   exports: [RabbitMQModule, Logger, UsersModule],
