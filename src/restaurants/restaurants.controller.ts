@@ -64,4 +64,16 @@ export class RestaurantsController extends BaseController {
   async updateMenuItem(@Body() data, @Req() req) {
     return this.service.updateMenuItem(data, await this.getMeta({ req }));
   }
+
+  /********************************************************************* */
+
+  @Post('/question')
+  async createQuestion(@Body() data, @Req() req) {
+    return this.service.createQuestion(data, await this.getMeta({ req }));
+  }
+
+  @Get('/question/all_questions')
+  async getAllQuestions(@Req() req) {
+    return this.service.getAllQuestions(await this.getMeta({ req }));
+  }
 }

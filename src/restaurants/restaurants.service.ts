@@ -33,4 +33,13 @@ export class RestaurantsService extends BaseService {
   async updateMenuItem(data: object, meta: Metadata) {
     return this.sendCommand('update_menu_item', data, meta);
   }
+
+  /***************************************************** */
+  async createQuestion(data: object, meta: Metadata) {
+    return this.sendCommand('create_question', data, meta);
+  }
+
+  async getAllQuestions(meta: Metadata) {
+    return this.sendQuery('get_all_questions', {}, meta);
+  }
 }
