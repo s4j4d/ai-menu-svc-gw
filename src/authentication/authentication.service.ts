@@ -21,7 +21,7 @@ export class AuthenticationService extends BaseService {
   protected readonly logger = new Logger(AuthenticationService.name);
 
   async validateUser(usernameOrMobile: string, pass: string): Promise<any> {
-    this.logger.log('validateUser');
+    this.logger.log(this.validateUser.name);
     let users = [];
     try {
       users =

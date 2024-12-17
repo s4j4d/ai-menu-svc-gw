@@ -1,6 +1,6 @@
 import { Strategy } from 'passport-local';
 import { PassportStrategy } from '@nestjs/passport';
-import { ForbiddenException, Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { AuthenticationService } from './authentication.service';
 
 /**
@@ -15,13 +15,13 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     super({ usernameField: 'usernameOrMobile', passwordField: 'password' });
   }
   async validate(usernameOrMobile: string, password: string) {
-    this.logger.log('validate');
+    this.logger.log(this.validate.name);
     const { user } = await this.authenticationService.validateUser(
       usernameOrMobile,
       password,
     );
     if (!user) {
-      throw new ForbiddenException();
+      throw new UnauthorizedException('Incorrect username, mobile or password');
     }
     return user;
   }
