@@ -60,6 +60,7 @@ export class AuthenticationController extends BaseController {
       ),
       sameSite: this.configService.get('JWT_COOKIE_SAME_SITE', 'strict'),
       path: this.configService.get('JWT_COOKIE_PATH', '/'),
+      domain: this.configService.get('JWT_COOKIE_DOMAIN', 'localhost')
     });
     res.status(200).send({ user });
   }
