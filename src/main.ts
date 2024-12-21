@@ -10,7 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   //TODO: remove this later
   app.enableCors({
-    origin: 'https://menyou-spa.darkube.app',
+    origin: '*',
     credentials: true,
   });
   app.useGlobalPipes(new ValidationPipe());
