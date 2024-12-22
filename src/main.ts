@@ -19,6 +19,7 @@ async function bootstrap() {
       'Cookie',
     ],
   });
+
   app.useGlobalPipes(new ValidationPipe());
   app.set('trust proxy', true);
   app.use(cookieParser());
