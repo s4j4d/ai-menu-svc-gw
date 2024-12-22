@@ -12,6 +12,12 @@ async function bootstrap() {
   app.enableCors({
     origin: '*',
     credentials: true,
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Custom-Header',
+      'Cookie',
+    ],
   });
   app.useGlobalPipes(new ValidationPipe());
   app.set('trust proxy', true);
